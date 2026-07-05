@@ -25,9 +25,9 @@ export class Profile{
       company: 'Carelon Global Solutions',
       position: 'Software Engineer 1',
       location: 'Gurugram',
-      startDate: 'Sep 2023',
+      startDate: 'Aug 2023',
       endDate: 'Present',
-      duration: '1+ years',
+      duration: '3+ years',
       responsibilities: [
         'Built secure RESTful and SOAP microservices in Java 17 and Spring Boot to manage facility contracts and metadata, reducing data processing errors by 30% and improving reliability for downstream systems.',
         'Developed an AngularJS enterprise dashboard with dynamic data visualisations and Excel export functionality, cutting report generation time by 35% for 50+ COE team members.',
