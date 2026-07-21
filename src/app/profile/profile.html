@@ -3,7 +3,8 @@
   <div class="hero-section">
     <div class="hero-glow"></div>
     <div class="position-absolute top-0 end-0 mt-4 me-4">
-      <button (click)="toggleTheme()" [ngClass]="isDarkMode ? 'btn btn-outline-light btn-sm hero-theme-btn' : 'btn btn-outline-dark btn-sm hero-theme-btn'">
+      <button (click)="toggleTheme()"
+        [ngClass]="isDarkMode ? 'btn btn-outline-light btn-sm hero-theme-btn' : 'btn btn-outline-dark btn-sm hero-theme-btn'">
         {{ isDarkMode ? '☀️ Light' : '🌙 Dark' }}
       </button>
     </div>
@@ -16,7 +17,7 @@
           <h1 class="display-4 fw-bold mb-2">{{ profile.name }}</h1>
           <h2 class="lead mb-3 hero-title">{{ profile.title }}</h2>
           <p class="mb-4 hero-description">{{ profile.summary }}</p>
-          
+
           <!-- Contact Info -->
           <div class="d-flex flex-wrap justify-content-center gap-2 hero-contacts">
             <a href="mailto:{{ profile.email }}" class="badge hero-badge text-decoration-none p-2">
@@ -44,63 +45,52 @@
   <div class="container mt-4">
     <ul class="nav nav-tabs nav-fill border-bottom border-info" role="tablist">
       <li class="nav-item" role="presentation">
-        <button 
-          class="nav-link overview-tab"
-          [class.active]="activeSection === 'overview'"
+        <button class="nav-link overview-tab" [class.active]="activeSection === 'overview'"
           [style.borderBottomColor]="activeSection === 'overview' ? '#38bdf8' : 'transparent'"
-          (click)="setActiveSection('overview')"
-          type="button">
+          (click)="setActiveSection('overview')" type="button">
           <i class="bi bi-card-list me-2"></i>Overview
         </button>
       </li>
       <li class="nav-item" role="presentation">
-        <button 
-          class="nav-link experience-tab"
-          [class.active]="activeSection === 'experience'"
+        <button class="nav-link experience-tab" [class.active]="activeSection === 'experience'"
           [style.borderBottomColor]="activeSection === 'experience' ? '#38bdf8' : 'transparent'"
-          (click)="setActiveSection('experience')"
-          type="button">
+          (click)="setActiveSection('experience')" type="button">
           <i class="bi bi-briefcase me-2"></i>Experience
         </button>
       </li>
       <li class="nav-item" role="presentation">
-        <button 
-          class="nav-link projects-tab"
-          [class.active]="activeSection === 'projects'"
+        <button class="nav-link projects-tab" [class.active]="activeSection === 'projects'"
           [style.borderBottomColor]="activeSection === 'projects' ? '#38bdf8' : 'transparent'"
-          (click)="setActiveSection('projects')"
-          type="button">
+          (click)="setActiveSection('projects')" type="button">
           <i class="bi bi-folder2-open me-2"></i>Projects
         </button>
       </li>
       <li class="nav-item" role="presentation">
-        <button 
-          class="nav-link skills-tab"
-          [class.active]="activeSection === 'skills'"
+        <button class="nav-link skills-tab" [class.active]="activeSection === 'skills'"
           [style.borderBottomColor]="activeSection === 'skills' ? '#38bdf8' : 'transparent'"
-          (click)="setActiveSection('skills')"
-          type="button">
+          (click)="setActiveSection('skills')" type="button">
           <i class="bi bi-stars me-2"></i>Skills
         </button>
       </li>
       <li class="nav-item" role="presentation">
-        <button 
-          class="nav-link education-tab"
-          [class.active]="activeSection === 'education'"
+        <button class="nav-link education-tab" [class.active]="activeSection === 'education'"
           [style.borderBottomColor]="activeSection === 'education' ? '#38bdf8' : 'transparent'"
-          (click)="setActiveSection('education')"
-          type="button">
+          (click)="setActiveSection('education')" type="button">
           <i class="bi bi-mortarboard-fill me-2"></i>Education
         </button>
       </li>
       <li class="nav-item" role="presentation">
-        <button 
-          class="nav-link awards-tab"
-          [class.active]="activeSection === 'awards'"
+        <button class="nav-link awards-tab" [class.active]="activeSection === 'awards'"
           [style.borderBottomColor]="activeSection === 'awards' ? '#38bdf8' : 'transparent'"
-          (click)="setActiveSection('awards')"
-          type="button">
+          (click)="setActiveSection('awards')" type="button">
           <i class="bi bi-trophy-fill me-2"></i>Awards
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link contributions-tab" [class.active]="activeSection === 'contributions'"
+          [style.borderBottomColor]="activeSection === 'contributions' ? '#38bdf8' : 'transparent'"
+          (click)="setActiveSection('contributions')" type="button">
+          <i class="bi bi-graph-up me-2"></i>Contributions
         </button>
       </li>
     </ul>
@@ -108,256 +98,279 @@
 
   <!-- Content Section -->
   <div class="container py-5">
-    
+
     <!-- Overview -->
     @if (activeSection === 'overview') {
-      <div class="fade-in">
-        <div class="row">
-          @for (item of quickFacts; track $index) {
-            <div class="col-md-6 mb-4">
-              <div class="card h-100 shadow-sm border-0 text-center tech-card">
-                <div class="card-body">
-                  <h5 class="card-title text-muted small">{{ item.label }}</h5>
-                  <p class="card-text display-6 fw-bold text-info">{{ item.value }}</p>
-                </div>
-              </div>
+    <div class="fade-in">
+      <div class="row">
+        @for (item of quickFacts; track $index) {
+        <div class="col-md-6 mb-4">
+          <div class="card h-100 shadow-sm border-0 text-center tech-card">
+            <div class="card-body">
+              <h5 class="card-title text-muted small">{{ item.label }}</h5>
+              <p class="card-text display-6 fw-bold text-info">{{ item.value }}</p>
             </div>
-          }
+          </div>
         </div>
+        }
       </div>
+    </div>
     }
 
     <!-- Experience -->
     @if (activeSection === 'experience') {
-      <div class="fade-in">
-        @for (job of experience; track $index) {
-          <div class="card mb-4 shadow-sm border-0 tech-card border-start border-info border-4">
-            <div class="card-body">
-              <div class="row align-items-start">
-                <div class="col-md-8">
-                  <h4 class="card-title mb-1 text-dark">{{ job.position }}</h4>
-                  <p class="text-info fw-bold mb-3">{{ job.company }} • {{ job.location }}</p>
-                </div>
-                <div class="col-md-4 text-md-end">
-                  <small class="d-block text-muted mb-1">{{ job.startDate }} - {{ job.endDate }}</small>
-                  <span class="badge bg-info text-dark">{{ job.duration }}</span>
-                </div>
-              </div>
-              
-              <ul class="list-unstyled">
-                @for (resp of job.responsibilities; track $index) {
-                  <li class="mb-2 ps-3">
-                    <span class="text-info me-2">▸</span>{{ resp }}
-                  </li>
-                }
-              </ul>
+    <div class="fade-in">
+      @for (job of experience; track $index) {
+      <div class="card mb-4 shadow-sm border-0 tech-card border-start border-info border-4">
+        <div class="card-body">
+          <div class="row align-items-start">
+            <div class="col-md-8">
+              <h4 class="card-title mb-1 text-dark">{{ job.position }}</h4>
+              <p class="text-info fw-bold mb-3">{{ job.company }} • {{ job.location }}</p>
+            </div>
+            <div class="col-md-4 text-md-end">
+              <small class="d-block text-muted mb-1">{{ job.startDate }} - {{ job.endDate }}</small>
+              <span class="badge bg-info text-dark">{{ job.duration }}</span>
             </div>
           </div>
-        }
+
+          <ul class="list-unstyled">
+            @for (resp of job.responsibilities; track $index) {
+            <li class="mb-2 ps-3">
+              <span class="text-info me-2">▸</span>{{ resp }}
+            </li>
+            }
+          </ul>
+        </div>
       </div>
+      }
+    </div>
     }
 
     <!-- Projects -->
     @if (activeSection === 'projects') {
-      <div class="fade-in">
-        @for (project of projects; track $index) {
-          <div class="card mb-4 shadow-sm border-0 tech-card border-start border-success border-4">
-            <div class="card-body">
-              <h4 class="card-title mb-3 text-dark">{{ project.title }}</h4>
-              <p class="card-text mb-3">{{ project.description }}</p>
-              
-              <div class="mb-3">
-                <h6 class="mb-2 text-success">Key Highlights:</h6>
-                <ul class="list-unstyled">
-                  @for (highlight of project.highlights; track $index) {
-                    <li class="mb-2 ps-3">
-                      <span class="text-success me-2">✓</span>{{ highlight }}
-                    </li>
-                  }
-                </ul>
-              </div>
-              
-              <div>
-                @for (tech of project.techStack; track $index) {
-                  <span class="badge bg-info text-dark me-2 mb-2">{{ tech }}</span>
-                }
-              </div>
-            </div>
+    <div class="fade-in">
+      @for (project of projects; track $index) {
+      <div class="card mb-4 shadow-sm border-0 tech-card border-start border-success border-4">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-start flex-wrap mb-3">
+            <h4 class="card-title mb-0 text-dark">{{ project.title }}</h4>
+            @if (project.liveUrl) {
+            <a [href]="project.liveUrl" target="_blank" class="badge bg-success text-decoration-none">
+              <i class="bi bi-box-arrow-up-right me-1"></i>Live Site
+            </a>
+            }
           </div>
-        }
+          <p class="card-text mb-3">{{ project.description }}</p>
+
+          <div class="mb-3">
+            <h6 class="mb-2 text-success">Key Highlights:</h6>
+            <ul class="list-unstyled">
+              @for (highlight of project.highlights; track $index) {
+              <li class="mb-2 ps-3">
+                <span class="text-success me-2">✓</span>{{ highlight }}
+              </li>
+              }
+            </ul>
+          </div>
+
+          <div>
+            @for (tech of project.techStack; track $index) {
+            <span class="badge bg-info text-dark me-2 mb-2">{{ tech }}</span>
+            }
+          </div>
+        </div>
       </div>
+      }
+    </div>
     }
 
     <!-- Skills -->
     @if (activeSection === 'skills') {
-      <div class="fade-in">
-        <div class="row">
-          <!-- Languages -->
-          <div class="col-md-6 mb-4">
-            <div class="card shadow-sm border-0 h-100 tech-card">
-              <div class="card-header bg-info text-dark fw-bold">
-                <i class="bi bi-translate me-2"></i>Languages
-              </div>
-              <div class="card-body">
-                <div class="d-flex flex-wrap gap-2">
-                  @for (skill of skills.languages; track $index) {
-                    <span class="badge bg-info text-dark"><i class="bi bi-code-slash me-1"></i>{{ skill }}</span>
-                  }
-                </div>
+    <div class="fade-in">
+      <div class="row">
+        <!-- Languages -->
+        <div class="col-md-6 mb-4">
+          <div class="card shadow-sm border-0 h-100 tech-card">
+            <div class="card-header bg-info text-dark fw-bold">
+              <i class="bi bi-translate me-2"></i>Languages
+            </div>
+            <div class="card-body">
+              <div class="d-flex flex-wrap gap-2">
+                @for (skill of skills.languages; track $index) {
+                <span class="badge bg-info text-dark"><i class="bi bi-code-slash me-1"></i>{{ skill }}</span>
+                }
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- Backend -->
-          <div class="col-md-6 mb-4">
-            <div class="card shadow-sm border-0 h-100 tech-card">
-              <div class="card-header bg-warning text-dark fw-bold">
-                <i class="bi bi-server me-2"></i>Backend
-              </div>
-              <div class="card-body">
-                <div class="d-flex flex-wrap gap-2">
-                  @for (skill of skills.backend; track $index) {
-                    <span class="badge bg-warning text-dark"><i class="bi bi-gear me-1"></i>{{ skill }}</span>
-                  }
-                </div>
+        <!-- Backend -->
+        <div class="col-md-6 mb-4">
+          <div class="card shadow-sm border-0 h-100 tech-card">
+            <div class="card-header bg-warning text-dark fw-bold">
+              <i class="bi bi-server me-2"></i>Backend
+            </div>
+            <div class="card-body">
+              <div class="d-flex flex-wrap gap-2">
+                @for (skill of skills.backend; track $index) {
+                <span class="badge bg-warning text-dark"><i class="bi bi-gear me-1"></i>{{ skill }}</span>
+                }
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- Frontend -->
-          <div class="col-md-6 mb-4">
-            <div class="card shadow-sm border-0 h-100 tech-card">
-              <div class="card-header bg-danger text-white fw-bold">
-                <i class="bi bi-palette me-2"></i>Frontend
-              </div>
-              <div class="card-body">
-                <div class="d-flex flex-wrap gap-2">
-                  @for (skill of skills.frontend; track $index) {
-                    <span class="badge bg-danger"><i class="bi bi-brush me-1"></i>{{ skill }}</span>
-                  }
-                </div>
+        <!-- Frontend -->
+        <div class="col-md-6 mb-4">
+          <div class="card shadow-sm border-0 h-100 tech-card">
+            <div class="card-header bg-danger text-white fw-bold">
+              <i class="bi bi-palette me-2"></i>Frontend
+            </div>
+            <div class="card-body">
+              <div class="d-flex flex-wrap gap-2">
+                @for (skill of skills.frontend; track $index) {
+                <span class="badge bg-danger"><i class="bi bi-brush me-1"></i>{{ skill }}</span>
+                }
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- Databases -->
-          <div class="col-md-6 mb-4">
-            <div class="card shadow-sm border-0 h-100 tech-card">
-              <div class="card-header bg-success text-white fw-bold">
-                <i class="bi bi-database me-2"></i>Databases
-              </div>
-              <div class="card-body">
-                <div class="d-flex flex-wrap gap-2">
-                  @for (skill of skills.databases; track $index) {
-                    <span class="badge bg-success"><i class="bi bi-table me-1"></i>{{ skill }}</span>
-                  }
-                </div>
+        <!-- Databases -->
+        <div class="col-md-6 mb-4">
+          <div class="card shadow-sm border-0 h-100 tech-card">
+            <div class="card-header bg-success text-white fw-bold">
+              <i class="bi bi-database me-2"></i>Databases
+            </div>
+            <div class="card-body">
+              <div class="d-flex flex-wrap gap-2">
+                @for (skill of skills.databases; track $index) {
+                <span class="badge bg-success"><i class="bi bi-table me-1"></i>{{ skill }}</span>
+                }
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- Cloud & DevOps -->
-          <div class="col-md-6 mb-4">
-            <div class="card shadow-sm border-0 h-100 tech-card">
-              <div class="card-header bg-primary text-white fw-bold">
-                <i class="bi bi-cloud me-2"></i>Cloud & DevOps
-              </div>
-              <div class="card-body">
-                <div class="d-flex flex-wrap gap-2">
-                  @for (skill of skills.cloud; track $index) {
-                    <span class="badge bg-primary"><i class="bi bi-lightning me-1"></i>{{ skill }}</span>
-                  }
-                </div>
+        <!-- Cloud & DevOps -->
+        <div class="col-md-6 mb-4">
+          <div class="card shadow-sm border-0 h-100 tech-card">
+            <div class="card-header bg-primary text-white fw-bold">
+              <i class="bi bi-cloud me-2"></i>Cloud & DevOps
+            </div>
+            <div class="card-body">
+              <div class="d-flex flex-wrap gap-2">
+                @for (skill of skills.cloud; track $index) {
+                <span class="badge bg-primary"><i class="bi bi-lightning me-1"></i>{{ skill }}</span>
+                }
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- Testing & QA -->
-          <div class="col-md-6 mb-4">
-            <div class="card shadow-sm border-0 h-100 tech-card">
-              <div class="card-header bg-secondary text-white fw-bold">
-                <i class="bi bi-bug me-2"></i>Testing & QA
-              </div>
-              <div class="card-body">
-                <div class="d-flex flex-wrap gap-2">
-                  @for (skill of skills.testing; track $index) {
-                    <span class="badge bg-secondary"><i class="bi bi-check-circle me-1"></i>{{ skill }}</span>
-                  }
-                </div>
+        <!-- Testing & QA -->
+        <div class="col-md-6 mb-4">
+          <div class="card shadow-sm border-0 h-100 tech-card">
+            <div class="card-header bg-secondary text-white fw-bold">
+              <i class="bi bi-bug me-2"></i>Testing & QA
+            </div>
+            <div class="card-body">
+              <div class="d-flex flex-wrap gap-2">
+                @for (skill of skills.testing; track $index) {
+                <span class="badge bg-secondary"><i class="bi bi-check-circle me-1"></i>{{ skill }}</span>
+                }
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- Tools -->
-          <div class="col-md-6 mb-4">
-            <div class="card shadow-sm border-0 h-100 tech-card">
-              <div class="card-header bg-dark text-white fw-bold">
-                <i class="bi bi-tools me-2"></i>Tools
-              </div>
-              <div class="card-body">
-                <div class="d-flex flex-wrap gap-2">
-                  @for (skill of skills.tools; track $index) {
-                    <span class="badge bg-secondary"><i class="bi bi-wrench me-1"></i>{{ skill }}</span>
-                  }
-                </div>
+        <!-- Tools -->
+        <div class="col-md-6 mb-4">
+          <div class="card shadow-sm border-0 h-100 tech-card">
+            <div class="card-header bg-dark text-white fw-bold">
+              <i class="bi bi-tools me-2"></i>Tools
+            </div>
+            <div class="card-body">
+              <div class="d-flex flex-wrap gap-2">
+                @for (skill of skills.tools; track $index) {
+                <span class="badge bg-secondary"><i class="bi bi-wrench me-1"></i>{{ skill }}</span>
+                }
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- APIs & Architecture -->
-          <div class="col-md-6 mb-4">
-            <div class="card shadow-sm border-0 h-100 tech-card">
-              <div class="card-header bg-purple text-white fw-bold" style="background-color: #6f42c1;">
-                <i class="bi bi-diagram-3 me-2"></i>APIs & Architecture
-              </div>
-              <div class="card-body">
-                <div class="d-flex flex-wrap gap-2">
-                  @for (skill of skills.apis; track $index) {
-                    <span class="badge text-white" style="background-color: #6f42c1;"><i class="bi bi-bezier me-1"></i>{{ skill }}</span>
-                  }
-                </div>
+        <!-- APIs & Architecture -->
+        <div class="col-md-6 mb-4">
+          <div class="card shadow-sm border-0 h-100 tech-card">
+            <div class="card-header bg-purple text-white fw-bold" style="background-color: #6f42c1;">
+              <i class="bi bi-diagram-3 me-2"></i>APIs & Architecture
+            </div>
+            <div class="card-body">
+              <div class="d-flex flex-wrap gap-2">
+                @for (skill of skills.apis; track $index) {
+                <span class="badge text-white" style="background-color: #6f42c1;"><i class="bi bi-bezier me-1"></i>{{
+                  skill }}</span>
+                }
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
     }
 
     <!-- Education -->
     @if (activeSection === 'education') {
-      <div class="fade-in">
-        @for (edu of education; track $index) {
-          <div class="card mb-3 shadow-sm border-0 tech-card border-start border-info border-4">
-            <div class="card-body">
-              <div class="row align-items-center">
-                <div class="col-md-8">
-                  <h5 class="card-title mb-1 text-dark">{{ edu.degree }}</h5>
-                  <p class="text-info mb-1">{{ edu.institution }}</p>
-                  <small class="text-muted">{{ edu.year }}</small>
-                </div>
-                <div class="col-md-4 text-md-end mt-3 mt-md-0">
-                  <span class="badge bg-info text-dark p-2">{{ edu.gpa }}</span>
-                </div>
-              </div>
+    <div class="fade-in">
+      @for (edu of education; track $index) {
+      <div class="card mb-3 shadow-sm border-0 tech-card border-start border-info border-4">
+        <div class="card-body">
+          <div class="row align-items-center">
+            <div class="col-md-8">
+              <h5 class="card-title mb-1 text-dark">{{ edu.degree }}</h5>
+              <p class="text-info mb-1">{{ edu.institution }}</p>
+              <small class="text-muted">{{ edu.year }}</small>
+            </div>
+            <div class="col-md-4 text-md-end mt-3 mt-md-0">
+              <span class="badge bg-info text-dark p-2">{{ edu.gpa }}</span>
             </div>
           </div>
-        }
+        </div>
       </div>
+      }
+    </div>
     }
 
     <!-- Awards -->
     @if (activeSection === 'awards') {
-      <div class="fade-in">
-        @for (award of awards; track $index) {
-          <div class="card mb-3 shadow-sm border-0 tech-card border-start border-warning border-4">
-            <div class="card-body">
-              <h5 class="card-title mb-2 text-dark"><i class="bi bi-trophy-fill text-warning me-2"></i>{{ award.title }}</h5>
-              <p class="badge bg-warning text-dark mb-3">{{ award.issuer }}</p>
-              <p class="card-text">{{ award.description }}</p>
-            </div>
-          </div>
-        }
+    <div class="fade-in">
+      @for (award of awards; track $index) {
+      <div class="card mb-3 shadow-sm border-0 tech-card border-start border-warning border-4">
+        <div class="card-body">
+          <h5 class="card-title mb-2 text-dark"><i class="bi bi-trophy-fill text-warning me-2"></i>{{ award.title }}
+          </h5>
+          <p class="badge bg-warning text-dark mb-3">{{ award.issuer }}</p>
+          <p class="card-text">{{ award.description }}</p>
+        </div>
       </div>
+      }
+    </div>
+    }
+
+    <!-- Contributions -->
+    @if (activeSection === 'contributions') {
+    <div class="fade-in">
+      <div class="card mb-4 shadow-sm border-0 tech-card">
+        <div class="card-body text-center">
+          <h4 class="card-title mb-2 text-dark"><i class="bi bi-graph-up me-2 text-info"></i>GitHub Contributions</h4>
+          <p class="text-muted small mb-3">Last 12 months contribution graph</p>
+          <img src="{{ githubChartUrl }}" alt="GitHub Contribution Chart" class="github-chart img-fluid" />
+          <!-- <p class="small text-muted mt-3">Change the username in `profile.ts` (`githubUsername`) to point this chart to a different account.</p> -->
+        </div>
+      </div>
+    </div>
     }
 
   </div>
