@@ -20,6 +20,10 @@ export class Profile{
     summary: 'Full Stack Developer with 3+ years of experience building Java and Spring Boot microservices and Angular-based enterprise applications in the healthcare domain. Delivered a production AWS Textract pipeline that reduced manual data processing time by 40% and an enterprise dashboard that cut reporting time by 35%. Strong foundation in REST APIs, Spring Security, MongoDB, MySQL, Python, and AWS with a track record of measurable, award-recognised impact.'
   };
 
+  // GitHub contribution chart settings
+  githubUsername = 'aditya-raj19';
+  githubChartUrl = `https://ghchart.rshah.org/${this.githubUsername}`;
+
   experience = [
     {
       company: 'Carelon Global Solutions',
@@ -38,20 +42,32 @@ export class Profile{
     }
   ];
 
-  projects = [
-    {
-      title: 'News Website',
-      description: 'Built a full-stack news platform using Spring Boot (REST APIs), Angular (UI), and MongoDB, featuring JWT authentication, multi-category search with text indexing, and an admin content management panel.',
-      highlights: [
-        'Designed relational schemas using MySQL and JPA to manage structured content metadata, writing optimised SQL queries for category filtering and pagination.',
-        'Optimised MongoDB indexing and query logic, reducing API response latency by 20% under load testing with concurrent requests.'
-      ],
-      techStack: ['Spring Boot', 'Angular', 'MongoDB', 'MySQL', 'JWT', 'REST APIs']
-    }
-  ];
+ projects = [
+  {
+  title: 'EsportsBuzz.in',
+  description: 'Esports platform for the Indian market built on Angular 17 and a Spring Boot REST backend, with a dual-database architecture: PostgreSQL for relational auth/session data and MongoDB for match and tournament data. Implements stateless JWT authentication with httpOnly cookies to mitigate XSS-based token theft, and is deployed on Vercel with custom domain routing via GoDaddy.',
+  highlights: [
+    'Designed a JWT auth flow using httpOnly, SameSite-secured cookies against a PostgreSQL-backed user store, avoiding client-side token storage entirely.',
+    'Split persistence by access pattern — PostgreSQL for structured relational data (users, sessions), MongoDB for high-write, schema-flexible match/tournament data.',
+    'Built the SPA in Angular 17 with standalone components and CSS, and configured production deployment on Vercel with a custom domain.',
+    'Architecting a live scorecard module to ingest real-time Free Fire match data (kills, placements, points) beyond static schedules.'
+  ],
+  techStack: ['Angular 17', 'Spring Boot', 'MongoDB', 'PostgreSQL', 'CSS', 'JWT', 'Vercel'],
+  liveUrl: 'https://esportsbuzz.in'
+},
+  {
+    title: 'News Website',
+    description: 'Built a full-stack news platform using Spring Boot (REST APIs), Angular (UI), and MongoDB, featuring JWT authentication, multi-category search with text indexing, and an admin content management panel.',
+    highlights: [
+      'Designed relational schemas using MySQL and JPA to manage structured content metadata, writing optimised SQL queries for category filtering and pagination.',
+      'Optimised MongoDB indexing and query logic, reducing API response latency by 20% under load testing with concurrent requests.'
+    ],
+    techStack: ['Spring Boot', 'Angular', 'MongoDB', 'MySQL', 'JWT', 'REST APIs']
+  }
+];
 
   skills = {
-    languages: ['Java 17', 'JavaScript', 'Python', 'SQL'],
+    languages: ['Java 17', 'JavaScript',  'SQL'],
     backend: ['Spring Boot', 'Spring MVC', 'Spring Core', 'Spring Security', 'JPA / Hibernate', 'Microservices', 'REST APIs', 'SOAP'],
     frontend: ['Angular', 'HTML5 / CSS3', 'Bootstrap', 'AJAX', 'JSON / XML'],
     apis: ['JWT', 'Swagger / OpenAPI', 'Microservices'],
