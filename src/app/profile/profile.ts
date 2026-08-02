@@ -149,7 +149,7 @@ export class Profile{
   quickFacts = [
     { label: 'Experience', value: '3+ Years' },
     { label: 'Current Role', value: 'Software Engineer' },
-    { label: 'Domain', value: 'Healthcare & Esports' },
-    { label: 'Location', value: 'Gurugram' }
+    { label: 'Domain', value: 'Full Stack Development' },
+    { label: 'Location', value: 'Gurugram, Haryana' }
   ];
 }
